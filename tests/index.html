@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShuffleHTMLChilds Test</title>
+    <title>ShuffleHTMLChildrens Test</title>
 </head>
 <body>
-    <script src="../ShuffleHTMLChilds.js"></script>
+    <script src="../ShuffleHTMLChildrens.js"></script>
     <script>
         // Shuffle ol #shuffle when window loaded if window.location.hostname === localhost.
-        shuffleList = new ShuffleHTMLChilds("ol#shuffle", {hostname: "localhost"});
+        shuffleList = new ShuffleHTMLChildrens("ol#shuffle", {hostname: "localhost"});
         // Try to shuffle a unexistent node
-        shuffleList = new ShuffleHTMLChilds("div#shuffle", {hostname: "localhost"});
+        shuffleList = new ShuffleHTMLChildrens("div#shuffle", {hostname: "localhost"});
         // Try to shuffle a empty node
-        shuffleList = new ShuffleHTMLChilds("img", {hostname: "localhost"});
-        // Buttons handlers without ShuffleHTMLChilds relation.
+        shuffleList = new ShuffleHTMLChildrens("img", {hostname: "localhost"});
+        // Buttons handlers without ShuffleHTMLChildrens relation.
         function loadLocalhost() {
             window.location.hostname = 'localhost';
         }
@@ -23,7 +23,7 @@
             window.location.hostname = '127.0.0.1';
         }
     </script>
-    <h1>ShuffleHTMLChilds test</h1>
+    <h1>ShuffleHTMLChildrens test</h1>
     <button onclick="loadLocalhost()">Access localhost</button>
     <button onclick="load127Network()">Access 127.0.0.1</button>
     <h2>Ordered list.</h2>
