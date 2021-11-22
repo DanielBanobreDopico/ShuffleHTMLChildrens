@@ -11,6 +11,10 @@
     <script>
         // Shuffle ol #shuffle when window loaded if window.location.hostname === localhost.
         shuffleList = new ShuffleHTMLChilds("ol#shuffle", {hostname: "localhost"});
+        // Try to shuffle a unexistent node
+        shuffleList = new ShuffleHTMLChilds("div#shuffle", {hostname: "localhost"});
+        // Try to shuffle a empty node
+        shuffleList = new ShuffleHTMLChilds("img", {hostname: "localhost"});
         // Buttons handlers without ShuffleHTMLChilds relation.
         function loadLocalhost() {
             window.location.hostname = 'localhost';
@@ -42,5 +46,9 @@
         <li>9</li>
         <li>10</li>
     </ol>
+    <h2>Empty list.</h2>
+    <ol id="empty"></ol>
+    <h2>No childs element.</h2>
+    <img src="" alt="No image">
 </body>
 </html>
