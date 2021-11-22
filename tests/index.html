@@ -7,11 +7,30 @@
     <title>ShuffleHTMLChilds Test</title>
 </head>
 <body>
-    <script src="../assets/scripts/ShuffleHTMLChilds.js"></script>
+    <script src="../ShuffleHTMLChilds.js"></script>
     <script>
-        shuffleList = new ShuffleHTMLChilds("ol", {protocol: "http:", hostname: "localhost", path: "/"});
+        // Shuffle ol #shuffle when window loaded if window.location.hostname === localhost.
+        shuffleList = new ShuffleHTMLChilds("ol#shuffle", {hostname: "localhost"});
+        // Buttons handlers without ShuffleHTMLChilds relation.
+        function loadLocalhost() {
+            window.location.hostname = 'localhost';
+        }
+        function load127Network() {
+            window.location.hostname = '127.0.0.1';
+        }
     </script>
+    <h1>ShuffleHTMLChilds test</h1>
+    <button onclick="loadLocalhost()">Access localhost</button>
+    <button onclick="load127Network()">Access 127.0.0.1</button>
+    <h2>Ordered list.</h2>
     <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ol>
+    <h2>Shuffled list, if hostname is "localhost".</h2>
+    <ol id="shuffle">
         <li>1</li>
         <li>2</li>
         <li>3</li>
