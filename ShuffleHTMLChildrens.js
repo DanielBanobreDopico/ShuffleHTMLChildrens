@@ -1,5 +1,5 @@
 /** Class representing a shuffle machine */
-class ShuffleHTMLChilds {
+class ShuffleHTMLChildrens {
     /**
      * Create a shuffle machine.
      * @param {string} parentQuerySelector - Query selector string for searching Node for shuffle childs.
