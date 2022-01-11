@@ -10,11 +10,13 @@
     <script src="../ShuffleHTMLChildrens.js"></script>
     <script>
         // Shuffle ol #shuffle when window loaded if window.location.hostname === localhost.
-        shuffleList = new ShuffleHTMLChildrens("ol#shuffle", {hostname: "localhost"});
-        // Try to shuffle a unexistent node
-        shuffleList = new ShuffleHTMLChildrens("div#shuffle", {hostname: "localhost"});
-        // Try to shuffle a empty node
-        shuffleList = new ShuffleHTMLChildrens("img", {hostname: "localhost"});
+        shuffleList1 = new ShuffleHTMLChildrens("ol#shuffle", {hostname: "localhost"});
+        // Shuffle ol #keep keeping keep first and last.
+        shuffleList2 = new ShuffleHTMLChildrens("ol#keep", {hostname: "localhost"}, "#frst", "#lst");
+        // Try to shuffle a unexistent node.
+        shuffleList3 = new ShuffleHTMLChildrens("div#shuffle", {hostname: "localhost"});
+        // Try to shuffle a empty node.
+        shuffleList4 = new ShuffleHTMLChildrens("img", {hostname: "localhost"});
         // Buttons handlers without ShuffleHTMLChildrens relation.
         function loadLocalhost() {
             window.location.hostname = 'localhost';
@@ -45,6 +47,15 @@
         <li>8</li>
         <li>9</li>
         <li>10</li>
+    </ol>
+    <h2>Shuffle, but keep first and last child nodes.</h2>
+    <ol id="keep">
+        <li id="frst">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li id="lst">6</li>
     </ol>
     <h2>Empty list.</h2>
     <ol id="empty"></ol>

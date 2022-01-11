@@ -5,10 +5,12 @@ class ShuffleHTMLChildrens {
      * @param {string} parentQuerySelector - Query selector string for searching Node for shuffle childs.
      * @param {object} locationParameters - Object with window.location attribute values for triggering shuffling.
      */
-    constructor(parentQuerySelector, locationParameters = {} ) {
+    constructor(parentQuerySelector, locationParameters = {}, keepFirstQuerySelector = null, keepLastQuerySelector = null ) {
         this.locationParameters = locationParameters;
         this.parentQuerySelector = parentQuerySelector;
         this.addLoadListener();
+        this.keepFirstQuerySelector = keepFirstQuerySelector;
+        this.keepLastQuerySelector = keepLastQuerySelector;
     }
 
     /**
@@ -36,6 +38,8 @@ class ShuffleHTMLChildrens {
             const parent = this.getParent();
             if ( parent ) {
                 if (parent.children.length < 1 || !parent.hasOwnProperty("children")) console.warn(`There is nothing to shuffle in ${this.parentQuerySelector}.`);
+                const first = this.keepFirstQuerySelector ? parent.querySelector(this.keepFirstQuerySelector) : null;
+                const last = this.keepLastQuerySelector ? parent.querySelector(this.keepLastQuerySelector) : null;
                 // Move random element to last position.
                 // Reverse counter avoid to move already moved elements.
                 for ( let   i = parent.children.length - 1 ; i > -1 ; i-- ) {
@@ -44,6 +48,9 @@ class ShuffleHTMLChildrens {
                         parent.children[Math.round(Math.random()*i)]
                     );
                 }
+                // Move first and last elements, if any
+                if ( first ) parent.insertBefore(first, parent.childNodes[0]);
+                if ( last ) parent.appendChild(last);
             } else {
                 throw new ShuffleError(`There isn't a ${this.parentQuerySelector} node.`);
             }
