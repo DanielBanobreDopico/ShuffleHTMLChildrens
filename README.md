@@ -24,6 +24,13 @@ If you need to shuffle multiple HTML parent nodes, instantiate multiple ShuffleH
 </script>
 ```
 
+You can provide query selectors for elements to keep in first and last position:
+```html
+<script src="../ShuffleHTMLChildrens.js"></script>
+<script>
+    shuffleList = new ShuffleHTMLChildrens("div#random", {hostname: "localhost"}, "div.top", "div.botton");
+</script>
+```
 ## Exception handling
 ShuffleHTMLChildren throw a custom error ```ShuffleError``` if can't find requested parent node.
 
@@ -44,6 +51,7 @@ Accessing http://127.0.0.1:8000/tests/ must to show ordered list.
 You will to see error handling tests in JavaScript console.
 
 There are multiple instances for testing exceptions in the test:
+* Keep first and last elements in position.
 * Unexistent node.
 * Empty node.
 * Node without children attribute.
