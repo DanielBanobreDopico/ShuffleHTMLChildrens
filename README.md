@@ -34,6 +34,16 @@ You can provide query selectors for elements to keep in first and last position:
 ## Exception handling
 ShuffleHTMLChildren throw a custom error ```ShuffleError``` if can't find requested parent node.
 
+## Known issues
+Running ShuffleHTMLChildren brokes Weebly online editor. You can workaround avoiding ShuffleHTMLChildren for running into editor:
+```html
+<script>
+    if (window.self == window.top) { // Avoid run in online editor
+        new ShuffleHTMLChildrens('#wsite-content',{pathname: "/partnerships/"})
+    }
+</script>
+```
+
 ## Testing ShuffleHTMLChildren.
 
 Access ./tests/index.html from a develpment HTTP service.
